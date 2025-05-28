@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const prisma = require("../../prisma/client");
 
-// Helper function to calculate days between two dates
+// Helper function to calculate days between two dates yeah
 const calculateDaysBetween = (date1, date2) =>
   Math.ceil((date2 - date1) / (1000 * 3600 * 24));
 
