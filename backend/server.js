@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const dotenv = require("dotenv");
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5003;
 const authRoutes = require("./routes/authRoutes"); // Import the authRoutes file
 const { errorHandler } = require("./middleware/errorMiddleware");
 const updateUserStatuses = require("./cron/updateUserStatuses"); // Import the cron job
