@@ -1,0 +1,354 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  startDate String
+  jobType   String
+  photoUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id           String      @id @default(uuid())
+  customerName String
+  phoneNumber  String
+  status       String
+  orderItems   OrderItem[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Product {
+  id          String      @id @default(uuid())
+  name        String
+  price       Float
+  category    String
+  description String
+  imageUrl    String?
+  orderItems  OrderItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  orderId   String
+  productId String
+  quantity  Int
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Stock {
+  id        String   @id @default(uuid())
+  itemName  String
+  category  String
+  packs     Int
+  quantity  Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  name      String
+  category  String
+  amount    Float
+  type      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id                   String                @id @default(uuid())
+  name                 String
+  period               Int
+  maxDays              Int
+  price                Float
+  category             String
+  description          Json
+  preferred            Boolean               @default(false)
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  subscriptionRequests SubscriptionRequest[]
+  users                User[]
+}
+
+model HealthCondition {
+  id                    String   @id @default(uuid())
+  userId                String   @unique
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exerciseRestriction   Boolean? // Exercise restrictions by a physician
+  painDuringExercise    Boolean? // Pain during exercising
+  dizzinessOrFainting   Boolean? // Ever felt dizziness or fainted while exercising
+  boneOrJointDisease    Boolean? // Any bone or joint diseases
+  heartHypertensionMeds Boolean? // Medications related to heart and hypertension
+  chronicDiseases       String? // Additional remarks
+  additionalRemarks     String? // Additional remarks
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model User {
+  id                   String                @id @default(cuid())
+  fullName             String
+  gender               String
+  phoneNumber          String                @unique
+  email                String?
+  address              String
+  dob                  DateTime
+  emergencyContact     String
+  firstRegisteredAt    DateTime              @default(now())
+  startDate            DateTime              @default(now())
+  totalAttendance      Int                   @default(0)
+  preFreezeAttendance  Int                   @default(0)
+  preFreezeDaysCount   Int                   @default(0)
+  daysLeft             Int?
+  height               Float?
+  weight               Float?
+  bmis                 bmi[]
+  level                String?
+  goal                 String?
+  role                 String                @default("user")
+  password             String
+  status               String                @default("pending")
+  freezeDuration       Int?
+  freezeDate           DateTime?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  serviceId            String?
+  service              Service?              @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  attendance           Attendance[]
+  subscriptionRequests SubscriptionRequest[]
+  profileImageUrl      String?
+  healthCondition      HealthCondition?
+  fingerprintTemplate  String? @db.Text
+  // Define the relation here without `fields` or `references`
+  workouts             UserWorkout[]
+  mealPlans            UserMealPlan[]
+  exercisesCompleted   ExerciseCompletion[]
+  lastWorkoutDate      DateTime?
+  currentStreak        Int                   @default(0)
+  highestStreak        Int                   @default(0)
+  notifications        Notification[]
+  isComplete           Boolean               @default(false)
+}
+
+model bmi {
+  id        String   @id @default(uuid())
+  userId    String
+  value     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Attendance {
+  id        String   @id @default(uuid())
+  memberId  String
+  date      DateTime @default(now())
+  user      User     @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([memberId, date])
+}
+
+model SubscriptionRequest {
+  id          String   @id @default(uuid())
+  userId      String
+  serviceId   String
+  requestDate DateTime @default(now())
+  status      String   @default("pending") // Status: pending, approved, rejected
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  service     Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Advertisement {
+  id          String @id @default(uuid())
+  name        String
+  description String @db.Text
+  slug        String @unique
+}
+
+model Broadcast {
+  id          String   @id @default(uuid())
+  name        String
+  description String   @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model Notification {
+  id          String   @id @default(uuid())
+  name        String?
+  description String   @db.Text
+  userId      String
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Workout {
+  id             String        @id @unique @default(uuid())
+  name           String        @unique
+  slug           String        @unique
+  difficulty     String
+  mainGoal       String
+  workoutType    String
+  duration       Int
+  daysPerWeek    Int
+  timePerWorkout Int
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @default(now()) @updatedAt
+  targetGender   String?
+  exercises      Exercise[]    @relation("WorkoutExercises")
+  users          UserWorkout[]
+}
+
+model Exercise {
+  id                  String               @id @default(uuid())
+  slug                String               @unique
+  name                String               @unique
+  description         String
+  reps                Int?
+  sets                Int?
+  duration            Int
+  videoUrl            String?
+  focusArea           FocusArea?
+  equipments          Equipment[]
+  workouts            Workout[]            @relation("WorkoutExercises")
+  exerciseCompletions ExerciseCompletion[]
+}
+
+model UserWorkout {
+  id         String    @id @unique @default(uuid())
+  userId     String
+  workoutId  String
+  startedAt  DateTime  @default(now()) // When the workout was started
+  progress   Int? // Percentage or stage of workout completion
+  finishedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workout    Workout   @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+}
+
+model UserMealPlan {
+  id         String    @id @unique @default(uuid())
+  userId     String
+  mealPlanId String
+  startedAt  DateTime  @default(now())
+  progress   Int?
+  finishedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now())
+  User       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  MealPlan   MealPlan  @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+}
+
+model ExerciseCompletion {
+  id          String   @id @default(uuid())
+  userId      String
+  exerciseId  String
+  completedAt DateTime @default(now()) // When the exercise was completed
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+}
+
+enum FocusArea {
+  Chest
+  Back
+  Legs
+  Arms
+  Core
+  Shoulders
+  FullBody
+  Other
+  UpperBody
+  LowerBody
+}
+
+model Equipment {
+  id         String   @id @default(uuid())
+  name       String
+  exerciseId String
+  exercise   Exercise @relation(fields: [exerciseId], references: [id])
+}
+
+model MealPlan {
+  id          String         @id @default(uuid())
+  name        String
+  slug        String         @unique
+  description String
+  category    String
+  mainGoal    String
+  duration    Int
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  meals       MealPlanMeal[]
+  Users       UserMealPlan[]
+}
+
+model Meal {
+  id              String         @id @default(uuid())
+  name            String
+  slug            String         @unique
+  description     String
+  category        MealCategory
+  ingredients     Ingredient[]
+  instructions    String         @db.Text
+  calories        Float?
+  vegan           Boolean
+  preparationTime Int
+  protein         Float?
+  carbs           Float?
+  fats            Float?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  mealPlans       MealPlanMeal[]
+}
+
+model MealPlanMeal {
+  id         String   @id @default(uuid())
+  mealId     String
+  mealPlanId String
+  meal       Meal     @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  mealPlan   MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+}
+
+model Ingredient {
+  id       String  @id @default(uuid())
+  name     String
+  quantity String?
+  mealId   String
+  meal     Meal    @relation(fields: [mealId], references: [id], onDelete: Cascade)
+}
+
+enum MealCategory {
+  breakfast
+  lunch
+  dinner
+  snack
+  other
+}
