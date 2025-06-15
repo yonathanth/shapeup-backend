@@ -1,0 +1,706 @@
+[
+  {
+    "id": "0b5c9120-e1ee-4227-b691-6a9146f5782e",
+    "name": "Misir Wat (Lentils)",
+    "slug": "misir-wat.jpg",
+    "description": "Ethiopian spiced red lentil stew.",
+    "category": "lunch",
+    "instructions": "Sauté onions and garlic in oil. Add berbere spice and tomato paste. Stir in lentils and water. Simmer until lentils are soft.",
+    "calories": 250,
+    "vegan": true,
+    "preparationTime": 30,
+    "protein": 12,
+    "carbs": 40,
+    "fats": 4,
+    "ingredients": [
+      {
+        "name": "Water",
+        "quantity": "2 cups"
+      },
+      {
+        "name": "Onion",
+        "quantity": "1, finely chopped"
+      },
+      {
+        "name": "Berbere spice",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Red lentils",
+        "quantity": "1 cup"
+      },
+      {
+        "name": "Tomato paste",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "quantity": "2 cloves, minced"
+      }
+    ]
+  },
+  {
+    "id": "10e7826a-4833-4eff-a2a3-835d7ed9d8ba",
+    "name": "Kitfo",
+    "slug": "kitfo.jpg",
+    "description": "An Ethiopian dish of minced raw or lightly cooked beef, seasoned with spices and clarified butter.",
+    "category": "lunch",
+    "instructions": "Mix minced beef with clarified butter, mitmita spice, and salt. Serve raw or lightly cooked.",
+    "calories": 300,
+    "vegan": false,
+    "preparationTime": 15,
+    "protein": 30,
+    "carbs": 0,
+    "fats": 20,
+    "ingredients": [
+      {
+        "name": "Mitmita spice",
+        "quantity": "1/2 tsp"
+      },
+      {
+        "name": "Lean beef",
+        "quantity": "150g"
+      },
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Clarified butter",
+        "quantity": "1 tbsp"
+      }
+    ]
+  },
+  {
+    "id": "2f413260-2d3b-4e51-8912-44fd3e93bd75",
+    "name": "Whole-Grain Pasta",
+    "slug": "whole-grain-pasta.jpg",
+    "description": "A healthy pasta dish made with whole-grain spaghetti and olive oil.",
+    "category": "lunch",
+    "instructions": "Cook whole-grain spaghetti. In a pan, heat olive oil and sauté garlic. Toss the spaghetti in the garlic oil and top with Parmesan cheese.",
+    "calories": 400,
+    "vegan": false,
+    "preparationTime": 20,
+    "protein": 15,
+    "carbs": 60,
+    "fats": 10,
+    "ingredients": [
+      {
+        "name": "Parmesan cheese",
+        "quantity": "2 tbsp, grated"
+      },
+      {
+        "name": "Whole-grain spaghetti",
+        "quantity": "100g"
+      },
+      {
+        "name": "Garlic",
+        "quantity": "1 clove, minced"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "1 tbsp"
+      }
+    ]
+  },
+  {
+    "id": "38ce92c9-fb40-41c1-999f-504e6b28d26b",
+    "name": "Coconut Water",
+    "slug": "coconut-water.jpg",
+    "description": "A refreshing drink, naturally hydrating and full of electrolytes.",
+    "category": "other",
+    "instructions": "Serve chilled coconut water.",
+    "calories": 45,
+    "vegan": true,
+    "preparationTime": 1,
+    "protein": 0,
+    "carbs": 11,
+    "fats": 0,
+    "ingredients": [
+      {
+        "name": "Coconut water",
+        "quantity": "1 cup"
+      }
+    ]
+  },
+  {
+    "id": "3cb804b2-f6e6-4d2a-8403-c2c6324475cb",
+    "name": "Mixed Nuts Snack",
+    "slug": "mixed-nuts-snack.jpg",
+    "description": "A nutritious mix of almonds, cashews, and walnuts.",
+    "category": "snack",
+    "instructions": "Mix all the nuts together and enjoy as a snack.",
+    "calories": 200,
+    "vegan": true,
+    "preparationTime": 2,
+    "protein": 6,
+    "carbs": 5,
+    "fats": 18,
+    "ingredients": [
+      {
+        "name": "Walnuts",
+        "quantity": "5 halves"
+      },
+      {
+        "name": "Cashews",
+        "quantity": "10 pieces"
+      },
+      {
+        "name": "Almonds",
+        "quantity": "10 pieces"
+      }
+    ]
+  },
+  {
+    "id": "64d957c5-79bf-45df-9730-a67b567367b6",
+    "name": "Banana with Oatmeal",
+    "slug": "banana-oatmeal.jpg",
+    "description": "A comforting and energy-packed breakfast with oats and banana.",
+    "category": "breakfast",
+    "instructions": "Cook oats with milk until creamy. Top with banana slices, cinnamon, and honey.",
+    "calories": 280,
+    "vegan": true,
+    "preparationTime": 10,
+    "protein": 6,
+    "carbs": 55,
+    "fats": 4,
+    "ingredients": [
+      {
+        "name": "Milk (or plant-based milk)",
+        "quantity": "1 cup"
+      },
+      {
+        "name": "Cinnamon",
+        "quantity": "1/4 tsp"
+      },
+      {
+        "name": "Honey",
+        "quantity": "1 tsp (optional)"
+      },
+      {
+        "name": "Banana",
+        "quantity": "1/2, sliced"
+      },
+      {
+        "name": "Rolled oats",
+        "quantity": "1/2 cup"
+      }
+    ]
+  },
+  {
+    "id": "664056a5-7df2-4b69-8bc3-16458c2ae3bc",
+    "name": "Yogurt with Honey",
+    "slug": "yogurt-with-honey.jpg",
+    "description": "A simple, creamy dessert or snack with yogurt and a drizzle of honey.",
+    "category": "snack",
+    "instructions": "Mix yogurt with honey. Serve chilled.",
+    "calories": 150,
+    "vegan": false,
+    "preparationTime": 5,
+    "protein": 6,
+    "carbs": 15,
+    "fats": 4,
+    "ingredients": [
+      {
+        "name": "Honey",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Plain yogurt",
+        "quantity": "1 cup"
+      }
+    ]
+  },
+  {
+    "id": "83c0b587-f2d7-4710-a4ad-3b1ae9e69ac9",
+    "name": "Gomen (Ethiopian Collard Greens)",
+    "slug": "gomen.jpg",
+    "description": "A traditional Ethiopian dish made with collard greens and spices.",
+    "category": "lunch",
+    "instructions": "Sauté onion and garlic in oil. Add collard greens, salt, and pepper. Cook until greens are tender.",
+    "calories": 150,
+    "vegan": true,
+    "preparationTime": 15,
+    "protein": 4,
+    "carbs": 10,
+    "fats": 8,
+    "ingredients": [
+      {
+        "name": "Onion",
+        "quantity": "1/2, chopped"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Collard greens",
+        "quantity": "2 cups, chopped"
+      },
+      {
+        "name": "Garlic",
+        "quantity": "1 clove, minced"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      }
+    ]
+  },
+  {
+    "id": "8653e7cc-a13c-421d-8d5f-f971167e1389",
+    "name": "Watermelon Slices",
+    "slug": "watermelon-slices.jpg",
+    "description": "Fresh and juicy slices of watermelon, perfect for a hydrating snack.",
+    "category": "snack",
+    "instructions": "Cut watermelon into cubes and serve chilled.",
+    "calories": 80,
+    "vegan": true,
+    "preparationTime": 5,
+    "protein": 1,
+    "carbs": 20,
+    "fats": 0,
+    "ingredients": [
+      {
+        "name": "Watermelon",
+        "quantity": "2 cups, cubed"
+      }
+    ]
+  },
+  {
+    "id": "88b93caf-090e-4850-9299-c643c72c4607",
+    "name": "Cottage Cheese with Pineapple",
+    "slug": "cottage-cheese-pineapple.jpg",
+    "description": "A refreshing and protein-rich snack with sweet pineapple chunks.",
+    "category": "snack",
+    "instructions": "Mix cottage cheese with pineapple. Serve chilled.",
+    "calories": 120,
+    "vegan": false,
+    "preparationTime": 5,
+    "protein": 10,
+    "carbs": 8,
+    "fats": 4,
+    "ingredients": [
+      {
+        "name": "Cottage cheese",
+        "quantity": "1/2 cup"
+      },
+      {
+        "name": "Pineapple",
+        "quantity": "1/4 cup, diced"
+      }
+    ]
+  },
+  {
+    "id": "994e4b04-513c-4622-a0b7-a1e4f7962978",
+    "name": "Avocado Toast",
+    "slug": "avocado-toast.jpg",
+    "description": "A simple and nutritious toast topped with creamy avocado and a sprinkle of salt and pepper.",
+    "category": "breakfast",
+    "instructions": "Toast the bread. Mash the avocado and spread it over the toast. Sprinkle with salt, pepper, and olive oil if desired.",
+    "calories": 250,
+    "vegan": true,
+    "preparationTime": 10,
+    "protein": 5,
+    "carbs": 22,
+    "fats": 14,
+    "ingredients": [
+      {
+        "name": "Avocado",
+        "quantity": "1/2"
+      },
+      {
+        "name": "Whole-grain bread",
+        "quantity": "1 slice"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "1 tsp (optional)"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      }
+    ]
+  },
+  {
+    "id": "9be56342-bddd-4956-9083-78da51cd4f78",
+    "name": "Atikilt Wat (Spinach)",
+    "slug": "atikilt-wat-spinach.jpg",
+    "description": "A traditional Ethiopian dish with sautéed spinach and spices.",
+    "category": "lunch",
+    "instructions": "Heat oil in a pan. Sauté onions and garlic until fragrant. Add spinach, salt, and pepper. Cook until wilted.",
+    "calories": 120,
+    "vegan": true,
+    "preparationTime": 15,
+    "protein": 4,
+    "carbs": 8,
+    "fats": 6,
+    "ingredients": [
+      {
+        "name": "Spinach",
+        "quantity": "2 cups"
+      },
+      {
+        "name": "Onion",
+        "quantity": "1/2, chopped"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Garlic",
+        "quantity": "2 cloves, minced"
+      },
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tbsp"
+      }
+    ]
+  },
+  {
+    "id": "9e7c95b7-f96a-4fb3-8704-8e045034c871",
+    "name": "Potato Wat",
+    "slug": "potato-wat.png",
+    "description": "Ethiopian spiced potato stew with onions and berbere.",
+    "category": "dinner",
+    "instructions": "Sauté onion in oil. Add berbere spice and tomato paste. Add diced potatoes and simmer with water until tender.",
+    "calories": 200,
+    "vegan": true,
+    "preparationTime": 30,
+    "protein": 3,
+    "carbs": 40,
+    "fats": 5,
+    "ingredients": [
+      {
+        "name": "Berbere spice",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Tomato paste",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Potatoes",
+        "quantity": "2 medium"
+      },
+      {
+        "name": "Onion",
+        "quantity": "1, chopped"
+      }
+    ]
+  },
+  {
+    "id": "a0a1359c-c03a-49de-a9bf-6771efb24db7",
+    "name": "Green Tea",
+    "slug": "green-tea.jpg",
+    "description": "A calming and antioxidant-rich beverage.",
+    "category": "other",
+    "instructions": "Steep the green tea bag in boiled water for 3-5 minutes. Serve warm.",
+    "calories": 0,
+    "vegan": true,
+    "preparationTime": 5,
+    "protein": 0,
+    "carbs": 0,
+    "fats": 0,
+    "ingredients": [
+      {
+        "name": "Water",
+        "quantity": "1 cup, boiled"
+      },
+      {
+        "name": "Green tea bag",
+        "quantity": "1"
+      }
+    ]
+  },
+  {
+    "id": "aa6271a8-d698-4753-b240-c0ed8f6964b9",
+    "name": "Protein Shake",
+    "slug": "protein-shake.jpg",
+    "description": "A quick and convenient shake for post-workout recovery.",
+    "category": "snack",
+    "instructions": "Blend protein powder, milk, and banana until smooth.",
+    "calories": 200,
+    "vegan": true,
+    "preparationTime": 5,
+    "protein": 25,
+    "carbs": 15,
+    "fats": 2,
+    "ingredients": [
+      {
+        "name": "Banana",
+        "quantity": "1/2"
+      },
+      {
+        "name": "Protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "name": "Milk (or water)",
+        "quantity": "1 cup"
+      }
+    ]
+  },
+  {
+    "id": "cdd80634-0f8f-4bbb-94d1-0ea96a985005",
+    "name": "Oatmeal with Fruits",
+    "slug": "oatmeal-with-fruits.jpg",
+    "description": "A hearty and healthy breakfast bowl with oats and fresh fruits.",
+    "category": "breakfast",
+    "instructions": "Cook oats with milk until creamy. Top with banana, berries, and a drizzle of honey or maple syrup if desired.",
+    "calories": 300,
+    "vegan": true,
+    "preparationTime": 15,
+    "protein": 8,
+    "carbs": 52,
+    "fats": 5,
+    "ingredients": [
+      {
+        "name": "Berries",
+        "quantity": "1/4 cup"
+      },
+      {
+        "name": "Banana",
+        "quantity": "1/2, sliced"
+      },
+      {
+        "name": "Honey or maple syrup",
+        "quantity": "1 tsp (optional)"
+      },
+      {
+        "name": "Milk (or plant-based milk)",
+        "quantity": "1 cup"
+      },
+      {
+        "name": "Rolled oats",
+        "quantity": "1/2 cup"
+      }
+    ]
+  },
+  {
+    "id": "cfe0eb1b-90bf-41f8-bd7d-2ce640b05808",
+    "name": "Shiro with Injera",
+    "slug": "shiro-with-injera.jpg",
+    "description": "A traditional Ethiopian dish made from chickpea flour, spiced with berbere, and served with injera.",
+    "category": "lunch",
+    "instructions": "Sauté onions in oil until soft. Add shiro powder and water, stirring until smooth. Add berbere spice and simmer until thickened. Serve with injera.",
+    "calories": 300,
+    "vegan": true,
+    "preparationTime": 20,
+    "protein": 10,
+    "carbs": 50,
+    "fats": 5,
+    "ingredients": [
+      {
+        "name": "Onion",
+        "quantity": "1/2, chopped"
+      },
+      {
+        "name": "Berbere spice",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Water",
+        "quantity": "2 cups"
+      },
+      {
+        "name": "Injera",
+        "quantity": "1 piece"
+      },
+      {
+        "name": "Shiro powder",
+        "quantity": "50g"
+      }
+    ]
+  },
+  {
+    "id": "efbaddf5-2171-4c64-a24a-9f7db8248653",
+    "name": "Grilled Chicken with Brown Rice",
+    "slug": "grilled-chicken-brown-rice.jpg",
+    "description": "A high-protein meal with seasoned chicken and wholesome brown rice.",
+    "category": "dinner",
+    "instructions": "Season chicken with salt, pepper, and garlic powder. Grill until cooked through. Cook brown rice as per package instructions. Serve together.",
+    "calories": 350,
+    "vegan": false,
+    "preparationTime": 40,
+    "protein": 35,
+    "carbs": 35,
+    "fats": 6,
+    "ingredients": [
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Garlic powder",
+        "quantity": "1/2 tsp"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Brown rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "name": "Chicken breast",
+        "quantity": "150g"
+      }
+    ]
+  },
+  {
+    "id": "f1a2f88a-af50-407c-b32e-d8454670a93f",
+    "name": "Egg Omelet with Vegetables",
+    "slug": "egg-omelet-vegetables.jpg",
+    "description": "A light and nutritious omelet packed with vegetables.",
+    "category": "breakfast",
+    "instructions": "Whisk eggs. Sauté vegetables in oil, then pour in the eggs. Cook until set.",
+    "calories": 200,
+    "vegan": false,
+    "preparationTime": 15,
+    "protein": 14,
+    "carbs": 4,
+    "fats": 14,
+    "ingredients": [
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Spinach",
+        "quantity": "1/4 cup"
+      },
+      {
+        "name": "Onion",
+        "quantity": "1/4 cup, chopped"
+      },
+      {
+        "name": "Eggs",
+        "quantity": "2"
+      },
+      {
+        "name": "Tomatoes",
+        "quantity": "1/4 cup, chopped"
+      },
+      {
+        "name": "Oil",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      }
+    ]
+  },
+  {
+    "id": "f3632522-cfd0-492d-90d4-6977cfb40ee4",
+    "name": "Tuna with Sweet Potatoes",
+    "slug": "tuna-sweet-potatoes.jpg",
+    "description": "A lean, protein-rich dish with sweet potatoes and tuna.",
+    "category": "dinner",
+    "instructions": "Bake or boil sweet potatoes until tender. Mix tuna with olive oil, lemon juice, salt, and pepper. Serve together.",
+    "calories": 320,
+    "vegan": false,
+    "preparationTime": 25,
+    "protein": 25,
+    "carbs": 35,
+    "fats": 8,
+    "ingredients": [
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Sweet potatoes",
+        "quantity": "1 medium"
+      },
+      {
+        "name": "Canned tuna",
+        "quantity": "1 can (120g)"
+      },
+      {
+        "name": "Lemon juice",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      }
+    ]
+  },
+  {
+    "id": "fcc20f46-ec87-4838-8490-80cb7329aaed",
+    "name": "Grilled Fish",
+    "slug": "grilled-fish.jpg",
+    "description": "A healthy and flavorful grilled fish seasoned with herbs and lemon.",
+    "category": "lunch",
+    "instructions": "Season fish with lemon juice, garlic, olive oil, salt, and pepper. Grill until cooked through.",
+    "calories": 200,
+    "vegan": false,
+    "preparationTime": 20,
+    "protein": 25,
+    "carbs": 0,
+    "fats": 8,
+    "ingredients": [
+      {
+        "name": "Lemon juice",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Salt",
+        "quantity": "To taste"
+      },
+      {
+        "name": "Garlic",
+        "quantity": "1 clove, minced"
+      },
+      {
+        "name": "Fish fillet",
+        "quantity": "150g"
+      }
+    ]
+  }
+]

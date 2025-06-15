@@ -1,0 +1,53 @@
+[
+  {
+    "id": "11a39dd1-e213-46e2-80c9-e504153d4237",
+    "name": "Upper Body Strength Builder",
+    "slug": "upper-body-strength-builder.jpg",
+    "difficulty": "Medium",
+    "mainGoal": "Muscle Gain",
+    "workoutType": "Upper Body",
+    "duration": 8,
+    "daysPerWeek": 4,
+    "timePerWorkout": 60,
+    "targetGender": "Any",
+    "exercises": [
+      "06ff760c-aec3-4cb3-a2cf-042b882ef0ee",
+      "c504d318-a895-4c3e-8757-0528fc94c6d5",
+      "e1b01ed5-9e9c-4839-991d-cab83c39ca7c"
+    ]
+  },
+  {
+    "id": "2d8a1fd7-abbe-4cbd-b8e7-96cd7caa1e7a",
+    "name": "Leg Day Domination",
+    "slug": "leg-day-domination.jpg",
+    "difficulty": "Medium",
+    "mainGoal": "Muscle Gain",
+    "workoutType": "Lower Body",
+    "duration": 6,
+    "daysPerWeek": 3,
+    "timePerWorkout": 50,
+    "targetGender": "Any",
+    "exercises": [
+      "06653c28-9ff0-495f-acf8-59e72d208105",
+      "964b4601-f851-45c3-a2a7-fab8ebfcd526",
+      "c6a7e5b9-ba0b-41f9-acd4-746367bf7e21"
+    ]
+  },
+  {
+    "id": "417c6d64-5035-41d7-8b19-2ae4f0f62fd8",
+    "name": "Full Body Fat Burner",
+    "slug": "full-body-fat-burner.jpg",
+    "difficulty": "Hard",
+    "mainGoal": "Fat Loss",
+    "workoutType": "Full Body",
+    "duration": 6,
+    "daysPerWeek": 5,
+    "timePerWorkout": 45,
+    "targetGender": "Any",
+    "exercises": [
+      "cfdbf7c6-2e00-444c-bb22-aff5df2e1f77",
+      "ebe8edfd-02a0-43a9-b9ce-f34e1c397bcc",
+      "eecdf138-55c8-465a-9f38-84d9cc89cf86"
+    ]
+  }
+]

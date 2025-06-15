@@ -148,6 +148,28 @@ const getUserProfile = asyncHandler(async (req, res) => {
   });
 });
 
+// Helper function to create income transaction when user becomes active
+const createIncomeTransaction = async (user, service) => {
+  try {
+    await prisma.transaction.create({
+      data: {
+        name: `Membership Activation - ${user.fullName}`,
+        category: "Membership",
+        amount: service.price,
+        type: "Income",
+      },
+    });
+    console.log(
+      `Income transaction created for user ${user.fullName}: $${service.price}`
+    );
+  } catch (error) {
+    console.error(
+      `Failed to create income transaction for user ${user.fullName}:`,
+      error
+    );
+  }
+};
+
 const updateUserStatus = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { status, startDate, freezeDuration } = req.body;
@@ -166,10 +188,12 @@ const updateUserStatus = asyncHandler(async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid status" });
   }
 
-  // Fetch user with relevant fields
+  // Fetch user with relevant fields including fullName for transaction
   const user = await prisma.user.findUnique({
     where: { id },
     select: {
+      fullName: true,
+      status: true,
       service: true,
       daysLeft: true,
       startDate: true,
@@ -183,7 +207,13 @@ const updateUserStatus = asyncHandler(async (req, res) => {
     return res.status(404).json({ success: false, message: "User not found" });
   }
 
-  const { daysLeft, service, preFreezeAttendance } = user; // Fetch daysLeft from user data
+  const {
+    daysLeft,
+    service,
+    preFreezeAttendance,
+    fullName,
+    status: currentStatus,
+  } = user; // Fetch daysLeft from user data
 
   // Initialize update data
   const updateData = { status };
@@ -216,6 +246,11 @@ const updateUserStatus = asyncHandler(async (req, res) => {
     updateData.freezeDate = null;
     updateData.preFreezeAttendance = 0;
     updateData.preFreezeDaysCount = 0;
+
+    // Create income transaction only if user is not coming from frozen status
+    if (currentStatus !== "frozen" && service) {
+      await createIncomeTransaction({ fullName }, service);
+    }
   } else if (status === "unfreeze") {
     if (!user.freezeDate) {
       return res
@@ -228,6 +263,8 @@ const updateUserStatus = asyncHandler(async (req, res) => {
     updateData.startDate = adjustStartDateForFreeze(user.preFreezeDaysCount);
     updateData.freezeDate = null;
     updateData.status = "active";
+
+    // Note: No income transaction for unfreeze as it's just resuming existing membership
   } else if (status === "frozen") {
     const attendanceCountSinceStart = await prisma.attendance.count({
       where: { memberId: id, date: { gte: user.startDate } },

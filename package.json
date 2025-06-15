@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "seed": "node scripts/seed.js"
   },
   "keywords": [],
   "author": "",

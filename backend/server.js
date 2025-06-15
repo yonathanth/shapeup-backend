@@ -53,6 +53,8 @@ app.use("/api/notifications", require("./routes/notificationRoutes"));
 app.use("/api/nonActiveMembers", require("./routes/nonActiveMemberRoutes"));
 app.use("/api/attendance", require("./routes/attendanceRecorderRoute"));
 app.use("/api/staff", require("./routes/staffRoutes"));
+app.use("/api/contact", require("./routes/contactRoutes"));
+app.use("/api/users", require("./routes/userAnalyticsRoutes"));
 // Define routes
 
 app.use(

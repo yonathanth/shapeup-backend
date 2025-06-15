@@ -1,0 +1,81 @@
+[
+  {
+    "id": "0ea2b521-d26e-4139-9fde-a5fa5cf30513",
+    "name": "Energy Booster Plan",
+    "slug": "energy-booster-plan.png",
+    "description": "Boost your energy with meals rich in complex carbohydrates and healthy fats.",
+    "category": "Wellness",
+    "mainGoal": "Energy Boost",
+    "duration": 2,
+    "meals": [
+      "aa6271a8-d698-4753-b240-c0ed8f6964b9",
+      "efbaddf5-2171-4c64-a24a-9f7db8248653",
+      "f3632522-cfd0-492d-90d4-6977cfb40ee4",
+      "3cb804b2-f6e6-4d2a-8403-c2c6324475cb"
+    ]
+  },
+  {
+    "id": "1e48bd41-8b04-4824-8f0e-f8e99a4f5a7b",
+    "name": "Plant-Based Protein Plan",
+    "slug": "plant-based-protein-plan.jpg",
+    "description": "A vegetarian-friendly meal plan rich in plant-based proteins.",
+    "category": "Vegetarian",
+    "mainGoal": "Muscle Maintenance",
+    "duration": 4,
+    "meals": [
+      "9e7c95b7-f96a-4fb3-8704-8e045034c871",
+      "994e4b04-513c-4622-a0b7-a1e4f7962978",
+      "83c0b587-f2d7-4710-a4ad-3b1ae9e69ac9",
+      "cdd80634-0f8f-4bbb-94d1-0ea96a985005",
+      "9be56342-bddd-4956-9083-78da51cd4f78",
+      "0b5c9120-e1ee-4227-b691-6a9146f5782e",
+      "a0a1359c-c03a-49de-a9bf-6771efb24db7",
+      "64d957c5-79bf-45df-9730-a67b567367b6",
+      "38ce92c9-fb40-41c1-999f-504e6b28d26b"
+    ]
+  },
+  {
+    "id": "2a6faf93-1f79-49d9-8e60-e309a6ef18a6",
+    "name": "Fat Loss Accelerator",
+    "slug": "fat-loss-accelerator.jpg",
+    "description": "Designed to support fat loss with low-calorie, nutrient-dense meals.",
+    "category": "Weight Management",
+    "mainGoal": "Fat Loss",
+    "duration": 4,
+    "meals": [
+      "3cb804b2-f6e6-4d2a-8403-c2c6324475cb",
+      "f1a2f88a-af50-407c-b32e-d8454670a93f",
+      "efbaddf5-2171-4c64-a24a-9f7db8248653"
+    ]
+  },
+  {
+    "id": "9dd00f56-4bba-415b-be04-96e79607c639",
+    "name": "Lean Muscle Builder",
+    "slug": "lean-muscle-builder.jpg",
+    "description": "A meal plan focused on building lean muscle with high-protein and balanced macronutrients.",
+    "category": "Fitness",
+    "mainGoal": "Muscle Building",
+    "duration": 4,
+    "meals": [
+      "cdd80634-0f8f-4bbb-94d1-0ea96a985005",
+      "efbaddf5-2171-4c64-a24a-9f7db8248653",
+      "88b93caf-090e-4850-9299-c643c72c4607",
+      "fcc20f46-ec87-4838-8490-80cb7329aaed"
+    ]
+  },
+  {
+    "id": "bca31064-e546-48d5-982b-63bf14ee4d40",
+    "name": "Balanced Lifestyle Plan",
+    "slug": "balanced-lifestyle-plan.jpg",
+    "description": "A balanced diet plan for a sustainable and healthy lifestyle.",
+    "category": "Wellness",
+    "mainGoal": "General Health",
+    "duration": 3,
+    "meals": [
+      "0b5c9120-e1ee-4227-b691-6a9146f5782e",
+      "9be56342-bddd-4956-9083-78da51cd4f78",
+      "664056a5-7df2-4b69-8bc3-16458c2ae3bc",
+      "f1a2f88a-af50-407c-b32e-d8454670a93f"
+    ]
+  }
+]

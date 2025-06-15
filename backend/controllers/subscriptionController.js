@@ -1,6 +1,28 @@
 const asyncHandler = require("express-async-handler");
 const prisma = require("../../prisma/client");
 
+// Helper function to create income transaction when user becomes active
+const createIncomeTransaction = async (user, service) => {
+  try {
+    await prisma.transaction.create({
+      data: {
+        name: `Membership Activation - ${user.fullName}`,
+        category: "Membership",
+        amount: service.price,
+        type: "Income",
+      },
+    });
+    console.log(
+      `Income transaction created for user ${user.fullName}: $${service.price}`
+    );
+  } catch (error) {
+    console.error(
+      `Failed to create income transaction for user ${user.fullName}:`,
+      error
+    );
+  }
+};
+
 const requestSubscriptionExtension = asyncHandler(async (req, res) => {
   const { id: userId } = req.params; // User ID
   const { serviceId } = req.body; // Service for which the extension is requested
@@ -198,6 +220,11 @@ const updateSubscriptionRequestStatus = asyncHandler(async (req, res) => {
         status: "active", // Set user to active
       },
     });
+
+    // Create income transaction for subscription activation (not from frozen)
+    if (user.status !== "frozen") {
+      await createIncomeTransaction(request.user, request.service);
+    }
   }
 
   res.status(200).json({
