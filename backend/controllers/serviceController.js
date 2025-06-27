@@ -72,6 +72,7 @@ const addMultipleServices = asyncHandler(async (req, res) => {
       maxDays: service.maxDays,
       price: parseFloat(service.price), // Ensure price is a float
       category: service.category,
+      gender: service.gender || "unisex", // Default to unisex if not provided
       description: service.description,
       preferred: service.preferred || false,
     })),
@@ -85,8 +86,16 @@ const addMultipleServices = asyncHandler(async (req, res) => {
 
 // Add a new service
 const addService = asyncHandler(async (req, res) => {
-  const { name, period, maxDays, price, category, description, preferred } =
-    req.body;
+  const {
+    name,
+    period,
+    maxDays,
+    price,
+    category,
+    gender,
+    description,
+    preferred,
+  } = req.body;
 
   // Validation for required fields
   if (
@@ -112,6 +121,7 @@ const addService = asyncHandler(async (req, res) => {
       maxDays,
       price,
       category,
+      gender: gender || "unisex", // Default to unisex if not provided
       description,
       preferred: preferred || false,
     },
@@ -127,8 +137,16 @@ const addService = asyncHandler(async (req, res) => {
 // Edit a service by ID
 const editService = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const { name, period, maxDays, price, category, description, preferred } =
-    req.body;
+  const {
+    name,
+    period,
+    maxDays,
+    price,
+    category,
+    gender,
+    description,
+    preferred,
+  } = req.body;
 
   // Validation for required fields
   if (
@@ -155,6 +173,7 @@ const editService = asyncHandler(async (req, res) => {
       maxDays,
       price,
       category,
+      gender: gender || "unisex", // Default to unisex if not provided
       description,
       preferred: preferred || false,
     },

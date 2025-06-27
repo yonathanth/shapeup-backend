@@ -83,6 +83,7 @@ model Service {
   maxDays              Int
   price                Float
   category             String
+  gender               String                @default("unisex") // "male", "female", "unisex"
   description          Json
   preferred            Boolean               @default(false)
   createdAt            DateTime              @default(now())
