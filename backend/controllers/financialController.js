@@ -1,6 +1,101 @@
 const asyncHandler = require("express-async-handler");
 const prisma = require("../../prisma/client");
 
+// Helper functions for data aggregation
+const aggregateByHour = (transactions) => {
+  const hourlyData = {};
+  transactions.forEach((transaction) => {
+    const hour = new Date(transaction.createdAt).getHours();
+    const key = `${hour}:00`;
+    if (!hourlyData[key]) {
+      hourlyData[key] = { period: key, income: 0, expense: 0, net: 0 };
+    }
+    if (transaction.type === "Income") {
+      hourlyData[key].income += transaction.amount;
+    } else {
+      hourlyData[key].expense += transaction.amount;
+    }
+    hourlyData[key].net = hourlyData[key].income - hourlyData[key].expense;
+  });
+  return Object.values(hourlyData).sort((a, b) =>
+    a.period.localeCompare(b.period)
+  );
+};
+
+const aggregateByDay = (transactions, days) => {
+  const dailyData = {};
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.createdAt).toISOString().split("T")[0];
+    if (!dailyData[date]) {
+      dailyData[date] = { period: date, income: 0, expense: 0, net: 0 };
+    }
+    if (transaction.type === "Income") {
+      dailyData[date].income += transaction.amount;
+    } else {
+      dailyData[date].expense += transaction.amount;
+    }
+    dailyData[date].net = dailyData[date].income - dailyData[date].expense;
+  });
+  return Object.values(dailyData).sort((a, b) =>
+    a.period.localeCompare(b.period)
+  );
+};
+
+const aggregateByWeek = (transactions) => {
+  const weeklyData = {};
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.createdAt);
+    const weekStart = new Date(date.setDate(date.getDate() - date.getDay()));
+    const weekKey = weekStart.toISOString().split("T")[0];
+    if (!weeklyData[weekKey]) {
+      weeklyData[weekKey] = {
+        period: `Week of ${weekKey}`,
+        income: 0,
+        expense: 0,
+        net: 0,
+      };
+    }
+    if (transaction.type === "Income") {
+      weeklyData[weekKey].income += transaction.amount;
+    } else {
+      weeklyData[weekKey].expense += transaction.amount;
+    }
+    weeklyData[weekKey].net =
+      weeklyData[weekKey].income - weeklyData[weekKey].expense;
+  });
+  return Object.values(weeklyData).sort((a, b) =>
+    a.period.localeCompare(b.period)
+  );
+};
+
+const aggregateByMonth = (transactions) => {
+  const monthlyData = {};
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.createdAt);
+    const monthKey = `${date.getFullYear()}-${String(
+      date.getMonth() + 1
+    ).padStart(2, "0")}`;
+    if (!monthlyData[monthKey]) {
+      monthlyData[monthKey] = {
+        period: monthKey,
+        income: 0,
+        expense: 0,
+        net: 0,
+      };
+    }
+    if (transaction.type === "Income") {
+      monthlyData[monthKey].income += transaction.amount;
+    } else {
+      monthlyData[monthKey].expense += transaction.amount;
+    }
+    monthlyData[monthKey].net =
+      monthlyData[monthKey].income - monthlyData[monthKey].expense;
+  });
+  return Object.values(monthlyData).sort((a, b) =>
+    a.period.localeCompare(b.period)
+  );
+};
+
 const getTransactions = asyncHandler(async (req, res) => {
   const { filter } = req.query; // Get filter from query params
   const now = new Date();
@@ -17,11 +112,20 @@ const getTransactions = asyncHandler(async (req, res) => {
     const monthAgo = new Date();
     monthAgo.setMonth(now.getMonth() - 1);
     startDate = monthAgo;
+  } else if (filter === "3months") {
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(now.getMonth() - 3);
+    startDate = threeMonthsAgo;
+  } else if (filter === "6months") {
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(now.getMonth() - 6);
+    startDate = sixMonthsAgo;
   } else if (filter === "yearly") {
     const yearAgo = new Date();
     yearAgo.setFullYear(now.getFullYear() - 1);
     startDate = yearAgo;
   }
+
   // Fetch transactions with filtering (if a filter is provided)
   let transactions;
   if (startDate) {
@@ -48,10 +152,34 @@ const getTransactions = asyncHandler(async (req, res) => {
     .reduce((acc, t) => acc + t.amount, 0);
   const net = income - expense;
 
+  // Aggregate data for chart based on filter period
+  let chartData = [];
+
+  if (filter === "daily") {
+    // Group by hour for daily view
+    chartData = aggregateByHour(transactions);
+  } else if (filter === "weekly") {
+    // Group by day for weekly view
+    chartData = aggregateByDay(transactions, 7);
+  } else if (filter === "monthly") {
+    // Group by day for monthly view
+    chartData = aggregateByDay(transactions, 30);
+  } else if (filter === "3months" || filter === "6months") {
+    // Group by week for 3/6 months view
+    chartData = aggregateByWeek(transactions);
+  } else if (filter === "yearly") {
+    // Group by month for yearly view
+    chartData = aggregateByMonth(transactions);
+  } else {
+    // For all-time, group by month
+    chartData = aggregateByMonth(transactions);
+  }
+
   res.status(200).json({
     success: true,
     data: {
       transactions,
+      chartData,
       summary: {
         income,
         expense,
